@@ -43,7 +43,7 @@ class OpenWheatherApi
   def parse_result(response)
     temperature = JSON.parse(response)['main']['temp']
 
-    return render_result(data: temperature.round(2), temperature_type: temperature_type) if extended_output
+    return render_result(data: temperature.round(2), temperature_type: temperature_type, initiator: 'Open Wheather Api') if extended_output
 
     temperature.round(2)
   end

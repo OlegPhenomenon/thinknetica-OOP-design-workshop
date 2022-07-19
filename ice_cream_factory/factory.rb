@@ -14,7 +14,7 @@ class Factory
 
   def product!
     month = random_month
-    counter = (quantity * define_multiplier(month: month)).round if is_predict
+    counter = is_predict ? (quantity * define_multiplier(month: month)).round : quantity.round
 
     ice_cream_package = nil
     sort_of_ice_cream = nil
@@ -24,10 +24,10 @@ class Factory
       ice_cream_package = Package.produce_package(package_type: package_type, ice_cream_class: ice_cream_class)
     end
 
-    puts display(month: month,
-                 quantity: counter,
-                 ice_cream_package: ice_cream_package,
-                 sort_of_ice_cream: sort_of_ice_cream)
+    display(month: month,
+            quantity: counter,
+            ice_cream_package: ice_cream_package,
+            sort_of_ice_cream: sort_of_ice_cream)
   end
 
   private

@@ -23,7 +23,7 @@ class WheatherPredicter
     temperature = predict
     temperature = translate_to_forenheit(temperature)
 
-    return render_result(data: temperature.round(2), temperature_type: temperature_type) if extended_output
+    return render_result(initiator: 'Open Wheather Api', data: temperature.round(2), temperature_type: temperature_type) if extended_output
 
     temperature.round(2)
   end
